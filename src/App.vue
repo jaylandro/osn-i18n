@@ -5,6 +5,7 @@
     <select id="language-select" @change="setlanguage" required>
       <option value="" disabled selected hidden> language </option>
       <option value="en">English</option>
+      <option value="ar">Arabic</option>
       <option value="ja">Japanese</option>
       <option value="zh">Chinese</option>
       <option value="fr">French</option>
