@@ -49,21 +49,20 @@
         h5 Let's use our Country Data!
         country-select
       
-      slide.local-eg-theme-forest-road(:steps=3, enter='fadeIn' leave='bounceOutLeft')
+      slide.local-eg-theme-forest-road(:steps=4, enter='fadeIn' leave='bounceOutLeft')
         h3 Numeric Formatting (Dates, Currency, Time)
         ul.goals
           eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-            li(v-if='step >= 2') Dates #[a(href='http://www.ecma-international.org/ecma-402/2.0/#sec-intl-datetimeformat-constructor') The Intl.DateTimeFormat Constructor] 
+            li(v-if='step >= 2') 📅 Dates #[a(href='http://www.ecma-international.org/ecma-402/2.0/#sec-intl-datetimeformat-constructor') The Intl.DateTimeFormat Constructor] 
           eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-            li(v-if='step >= 3') Currency #[a(href='https://kazupon.github.io/vue-i18n/guide/number.html') Vue-i18n Docs] 
+            li(v-if='step >= 3') 💱 Currency #[a(href='https://kazupon.github.io/vue-i18n/guide/number.html') Vue-i18n Docs] 
           eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-            li(v-if='step >= 4') Time (Do you have 6 more hours?)
+            li(v-if='step >= 4') 🕔 Time (Do you have 6 more hours?)
 
       slide.local-eg-theme-space(enter='fadeIn'  leave='fadeOut')
-        eg-transition(enter='zoomIn')
-          h3 The future is up to you...
+          h3 The future is up to you
           h4 Jay Landro
-          a(href='https://github.com/jaylandro') https://github.com/jaylandro
+          a(href='https://github.com/jaylandro') https://github.com/jaylandro <br />
           a(href='https://twitter.com/HippyHoarder') @HippyHoarder
 </template>
 
@@ -92,8 +91,8 @@ export default {
     text-transform: uppercase;
   }
   .eg-slide-content {
-    width: 25em;
-    max-width: 80%;
+    width: 28em;
+    max-width: 85%;
     margin: 0 auto;
   }
   .intro-theme {
@@ -121,6 +120,9 @@ export default {
       list-style: none;
       padding-left: 0;
       font-size: 1.3em;
+    }
+    a {
+      color: white;
     }
   }
   .translations .eg-slide-content {
@@ -153,12 +155,19 @@ export default {
   }
   .local-eg-theme-space {
     @import url(https://fonts.googleapis.com/css?family=Forum);
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0px 15px 5px rgba(0,0,0,0.1),
+                 10px 20px 5px rgba(0,0,0,0.05),
+                 -10px 20px 5px rgba(0,0,0,0.05);
     h3 {
       font-family: 'Forum';
       font-size: 1.5em;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.9);
       letter-spacing: 1.5px;
-      margin-top: 50%
+      margin-top: 30%
+    }
+    a {
+      color: rgba(255, 255, 255, 0.9);
     }
     background-image: url(https://i.imgur.com/yO2ivoD.jpg);
     background-position: center;
