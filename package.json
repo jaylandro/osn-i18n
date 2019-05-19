@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
+  "main": "src/i18n/index.js",
   "dependencies": {
     "core-js": "^2.6.5",
     "reveal.js": "^3.8.0",
