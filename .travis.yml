@@ -16,5 +16,3 @@ deploy:
   api_key:
     secure: $npm_key
     tags: true
-  on:
-    branch: master

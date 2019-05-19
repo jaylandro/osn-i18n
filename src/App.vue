@@ -18,7 +18,7 @@
           eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
             li(v-if='step >= 5') Automation throughout! 🤖
       
-      slide.translations(enter='bounceInRight' leave='fadeOut')
+      slide.translations(enter='bounceInRight' leave='fadeOut', dir='auto')
         h5 Translations utilizing #[a(href='https://kazupon.github.io/vue-i18n/started.html#html' target="_blank") Vue-i18n]
         hello-world
 
@@ -45,20 +45,39 @@
             a(href='https://www.transifex.com/osn-i18n/osn-i18n/dashboard/' target='_blank')
               img(src='./assets/txlogo.png')
       
+      slide.translations(enter='bounceInRight' leave='fadeOut', dir='auto')
+        h5 Let's use our Country Data!
+        country-select
+      
+      slide.local-eg-theme-forest-road(:steps=3, enter='fadeIn' leave='bounceOutLeft')
+        h3 Numeric Formatting (Dates, Currency, Time)
+        ul.goals
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 2') Dates #[a(href='http://www.ecma-international.org/ecma-402/2.0/#sec-intl-datetimeformat-constructor') The Intl.DateTimeFormat Constructor] 
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 3') Currency #[a(href='https://kazupon.github.io/vue-i18n/guide/number.html') Vue-i18n Docs] 
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 4') Time (Do you have 6 more hours?)
+
       slide.local-eg-theme-space(enter='fadeIn'  leave='fadeOut')
         eg-transition(enter='zoomIn')
-          h3 Your bad taste is the limit
+          h3 The future is up to you...
+          h4 Jay Landro
+          a(href='https://github.com/jaylandro') https://github.com/jaylandro
+          a(href='https://twitter.com/HippyHoarder') @HippyHoarder
 </template>
 
 <script>
 import { Slideshow } from 'eagle.js'
 import HelloWorld from './components/HelloWorld.vue'
+import CountrySelect from './components/CountrySelect.vue'
 
 export default {
   name: 'app',
   mixins: [Slideshow],
   components: {
-    HelloWorld
+    HelloWorld,
+    CountrySelect,
   },
 }
 </script>
@@ -122,7 +141,7 @@ export default {
     @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
     @import './assets/ir-black';
     .eg-code-block {
-      margin-top: 30%;
+      margin-top: 25%;
     }
     .code-box {
       border-radius: 5px;

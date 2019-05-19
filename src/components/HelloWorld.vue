@@ -1,5 +1,5 @@
 <template>
-  <div @click.stop>
+  <form @click.stop dir='auto'>
     <h1>{{ $t('hello') }}</h1><br />
     <select id="language-select" @change="setlanguage" required>
       <option value="" disabled selected hidden> language </option>
@@ -10,7 +10,7 @@
       <option value="fr">french</option>
       <option value="es">spanish</option>
     </select>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -26,7 +26,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
   height: 150px;
