@@ -2,4 +2,4 @@ language: csharp
 mono: none
 dotnet: 2.1
 script:
- - dotnet publish nuget/osn-i18n.csproj && dotnet nuget push nuget/bin/Debug/*.nupkg -s https://api.nuget.org/v3/index.json -k "$nuget_key"
+ - dotnet publish nuget/osn-i18n.csproj && dotnet nuget push nuget/bin/Debug/*.nupkg -s https://api.nuget.org/v3/index.json -k $nuget_key
