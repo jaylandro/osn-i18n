@@ -1,13 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>osn-i18n</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>jay landro</Authors>
     <Company>sdg</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <BumpPatch>True</BumpPatch>
   </PropertyGroup>
-
-
+  <ItemGroup>
+    <PackageReference Include="MSBump" Version="2.3.2" />
+  </ItemGroup>
 </Project>

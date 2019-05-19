@@ -2,6 +2,9 @@
   "name": "osn-i18n",
   "version": "0.1.1",
   "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
