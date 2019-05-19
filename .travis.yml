@@ -7,12 +7,16 @@ install:
   - npm install
 script:
   - dotnet build nuget/osn-i18n.csproj
-  - dotnet pack nuget/osn-i18n.csproj
   - dotnet nuget push nuget/bin/Debug/*.nupkg -s https://api.nuget.org/v3/index.json -k $nuget_key
   - npm version patch --force
-deploy:  
-  provider: npm
-  email: "jaylandro@gmail.com"
-  api_key:
-    secure: $npm_key
-    tags: true
+
+jobs:
+  include:
+    - stage: npm release
+      node_js: "8"
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        email: "jaylandro@gmail.com"
+        api_key: $npm_key
+        on: deploy-npm-release

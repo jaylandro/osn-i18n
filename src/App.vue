@@ -85,6 +85,26 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 
+body {
+  width: 100%;
+  margin: 0 0;
+}
+input, select {
+  background: white;
+  font-size: 0.5em;
+  font-family: 'Noto Sans', sans-serif;
+  border-width: 0 0 2px 0;
+  padding: 6px;
+  cursor: pointer;
+}
+#app {
+  font-family: 'Noto Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  height: 100vh;
+}
+
 #osni18n-presentation {
   h3 {
     font-weight: normal;
@@ -94,6 +114,9 @@ export default {
     width: 28em;
     max-width: 85%;
     margin: 0 auto;
+  }
+  .goals {
+    line-height: 1.8em;
   }
   .intro-theme {
     background-image: url('./assets/i18n.svg');
@@ -173,29 +196,5 @@ export default {
     background-position: center;
     background-size: cover;
   }
-}
-
-
-body {
-  width: 100%;
-  margin: 0 0;
-}
-input, select {
-  background: white;
-  font-size: 0.5em;
-  font-family: 'Noto Sans', sans-serif;
-  border-width: 0 0 2px 0;
-  padding: 6px;
-  cursor: pointer;
-}
-#app {
-  font-family: 'Noto Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  height: 100vh;
-}
-.goals {
-  line-height: 1.8em;
 }
 </style>
