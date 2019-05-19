@@ -4,7 +4,7 @@ dotnet: 2.1
 install:
   - nvm install 8.0.0
   - nvm use 8.0.0
-  - npm ci
+  - npm install
 script:
   - dotnet build nuget/osn-i18n.csproj
   - dotnet pack nuget/osn-i18n.csproj

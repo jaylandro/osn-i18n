@@ -1,81 +1,156 @@
-<template>
-  <div id="app" dir="auto">
-    <div class="reveal">
-      <div class="slides" dir="auto">
-        <section class="i18n-bg">
-          <h1> Welcome </h1>
-        </section>
-        <section>
-          <h1>Goals...</h1>
-          <ul class="goals">
-            <li>Translations 🎉</li>
-            <li>Country Data 🌍</li>
-            <li>Numeric Formatting 🔢</li>
-            <li>Automation throughout! 🤖</li>
-          </ul>
-        </section>
-        <section dir="auto">
-          <h1>{{ $t('hello') }}</h1><br />
-          <select id="language-select" @change="setlanguage" required>
-            <option value="" disabled selected hidden> language </option>
-            <option value="en">english</option>
-            <option value="ar">arabic</option>
-            <option value="ja">japanese</option>
-            <option value="zh">chinese</option>
-            <option value="fr">french</option>
-            <option value="es">spanish</option>
-          </select>
-        </section>  
-        <section>
-          <h2>
-            <a href="https://kazupon.github.io/vue-i18n/guide/formatting.html#named-formatting" target="_blank">
-              Vue-i18n
-            </a>
-          </h2>  
-          <pre>
-            <code>
-            this.$i18n.locale = languageCode; 
-            </code>
-          </pre>
-        </section>
-      </div>
-    </div>
-  </div>
+<template lang='pug'>
+#app(dir='auto')
+  #osni18n-presentation
+    .eg-slideshow
+
+      slide.intro-theme(enter='fadeIn' leave='fadeOut')
+        h2 What the i18n??
+
+      slide.local-eg-theme-forest-road(:steps=5, enter='fadeIn' leave='bounceOutLeft')
+        h3 Goals...
+        ul.goals
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 2') Translations 🎉
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 3') Country Data 🌍
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 4') Numeric Formatting 🔢
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 5') Automation throughout! 🤖
+      
+      slide.translations(enter='bounceInRight' leave='fadeOut')
+        h5 Translations utilizing #[a(href='https://kazupon.github.io/vue-i18n/started.html#html' target="_blank") Vue-i18n]
+        hello-world
+
+      slide.local-eg-theme-city(enter='fadeIn' leave='fadeOut')
+        eg-transition(enter='flipInX')
+          eg-code-block(lang='javascript').
+              const userLanguage = (window.navigator.userLanguage 
+                || window.navigator.language).substring(0,2);
+              
+              const userLocale = languageMappings[userLanguage] 
+                ? userLanguage 
+                : 'en';
+
+              const i18n = new VueI18n({
+                locale: userLocale,
+                messages: languageMappings,
+              });
+
+              // On select event calls:
+              this.$i18n.locale = languageCode; 
+      
+      slide.local-eg-theme-spark(enter='fadeIn' leave='none')
+        eg-transition(enter='fadeInUp')
+            a(href='https://www.transifex.com/osn-i18n/osn-i18n/dashboard/' target='_blank')
+              img(src='./assets/txlogo.png')
+      
+      slide.local-eg-theme-space(enter='fadeIn'  leave='fadeOut')
+        eg-transition(enter='zoomIn')
+          h3 Your bad taste is the limit
 </template>
 
 <script>
-import Reveal from 'reveal.js/js/reveal'
+import { Slideshow } from 'eagle.js'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
+  mixins: [Slideshow],
   components: {
-    // HelloWorld
+    HelloWorld
   },
-  methods: {
-    setlanguage(event) {
-      let languageCode = event.target.value;
-      this.$i18n.locale = languageCode;
-    }
-  },
-  mounted() {
-    Reveal.initialize()
-  }
 }
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
-@import url('../node_modules/reveal.js/css/reveal.css');
-@import url('../node_modules/reveal.js/css/theme/white.css');
-.i18n-bg {
-  background-image: url('./assets/i18n.svg');
-  background-repeat: repeat;
-  background-size: 736px 380px;
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+
+#osni18n-presentation {
+  h3 {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  .eg-slide-content {
+    width: 25em;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .intro-theme {
+    background-image: url('./assets/i18n.svg');
+    background-repeat: repeat;
+    background-size: 536px 280px;
+    color: #000;
+    h2 {
+      background: rgba(255, 255, 255, .8);
+      margin-top: 40%;
+    }
+  }
+  .local-eg-theme-forest-road {
+    background-image: url(https://i.imgur.com/hxTMFZW.jpg);
+    background-position: center;
+    background-size: cover;
+    color: rgba(255, 255, 255, .9);
+    font-family: 'Cabin Sketch';
+    text-align: left;
+    h3 {
+      text-align: left;
+      margin-top: 20%;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.3em;
+    }
+  }
+  .translations .eg-slide-content {
+    width: 50em;
+    max-width: 100%;
+  }
+  .local-eg-theme-spark {
+    @import url(https://fonts.googleapis.com/css?family=Special+Elite);
+    a {
+      display: block;
+      margin-top: 12em;
+    }
+    background-image: url(https://i.imgur.com/FL9mwpd.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .local-eg-theme-city {
+    @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+    @import './assets/ir-black';
+    .eg-code-block {
+      margin-top: 30%;
+    }
+    .code-box {
+      border-radius: 5px;
+      padding: 16px 22px;
+    }
+    background-image: url(https://i.imgur.com/kmmHith.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .local-eg-theme-space {
+    @import url(https://fonts.googleapis.com/css?family=Forum);
+    h3 {
+      font-family: 'Forum';
+      font-size: 1.5em;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 1.5px;
+      margin-top: 50%
+    }
+    background-image: url(https://i.imgur.com/yO2ivoD.jpg);
+    background-position: center;
+    background-size: cover;
+  }
 }
-.i18n-bg h1 {
-  display: block;
-  background: white;
-  height: 70px;
+
+
+body {
+  width: 100%;
+  margin: 0 0;
 }
 input, select {
   background: white;
@@ -89,18 +164,8 @@ input, select {
   font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   text-align: center;
   height: 100vh;
-}
-select:invalid { color: gray; }
-select:required:invalid  { color: gray; }
-option[value=""][disabled] {
-  display: none;
-}
-option {
-  color: #2c3e50;
-  cursor: pointer;
 }
 .goals {
   line-height: 1.8em;

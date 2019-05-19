@@ -17,7 +17,7 @@ const userLocale = languageMappings[userLanguage] ? userLanguage : 'en';
 const i18n = new VueI18n({
   locale: userLocale,
   messages: languageMappings,
-})
+});
 
 window.i18n = i18n;
 
