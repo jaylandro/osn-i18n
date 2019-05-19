@@ -19,4 +19,5 @@ jobs:
         provider: npm
         email: "jaylandro@gmail.com"
         api_key: $npm_key
-        on: deploy-npm-release
+        on:
+          branch: master

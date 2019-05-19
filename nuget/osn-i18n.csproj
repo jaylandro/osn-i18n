@@ -4,7 +4,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>osn-i18n</PackageId>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>jay landro</Authors>
     <Company>sdg</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
