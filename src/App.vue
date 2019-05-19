@@ -40,7 +40,7 @@
               // On select event calls:
               this.$i18n.locale = languageCode; 
       
-      slide.local-eg-theme-spark(enter='fadeIn' leave='none')
+      slide.local-eg-theme-spark(enter='fadeIn' leave='bounceOutLeft')
         eg-transition(enter='fadeInUp')
             a(href='https://www.transifex.com/osn-i18n/osn-i18n/dashboard/' target='_blank')
               img(src='./assets/txlogo.png')

@@ -10,9 +10,7 @@
                 {{ country.name }}
         </option>
     </select>
-    <pre class="meta">
-        {{ countryMetaData }}
-    </pre>
+    <pre class="meta">{{ countryMetaData }}</pre>
   </form>
 </template>
 
@@ -41,13 +39,13 @@ export default {
             .then(countries => this.countryList = countries)
     },
     setLocation() {
-        fetch('http://ip-api.com/json', {
+        fetch('https://json.geoiplookup.io/', {
                 headers: {
                     "Accept": "application/json",
                 }
             })
             .then(response => response.json())
-            .then(country => this.countryCode = country.countryCode)
+            .then(country => this.countryCode = country.country_code)
     }
   },
   created() {
