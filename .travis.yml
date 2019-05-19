@@ -9,7 +9,7 @@ script:
   - dotnet build nuget/osn-i18n.csproj
   - dotnet pack nuget/osn-i18n.csproj
   - dotnet nuget push nuget/bin/Debug/*.nupkg -s https://api.nuget.org/v3/index.json -k $nuget_key
-  - npm version patch
+  - npm version patch --force
 deploy:  
   provider: npm
   email: "jaylandro@gmail.com"
