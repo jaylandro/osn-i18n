@@ -6,7 +6,6 @@
     <Version>1.0.0</Version>
     <Authors>jay landro</Authors>
     <Company>sdg</Company>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 
