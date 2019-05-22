@@ -5,16 +5,19 @@ install:
   - nvm install 8.0.0
   - nvm use 8.0.0
   - npm install
-script:
-  - dotnet build nuget/osn-i18n.csproj
-  - dotnet nuget push nuget/bin/Debug/*.nupkg -s https://api.nuget.org/v3/index.json -k $nuget_key
-  - npm version patch --force
+  - dotnet restore
 
 jobs:
   include:
+    - stage: dotnet core build and release
+      script:
+        - dotnet build nuget/osn-i18n.csproj
+        - dotnet nuget push nuget/bin/Debug/*.nupkg -s https://api.nuget.org/v3/index.json -k $nuget_key
     - stage: npm release
       node_js: "8"
-      script: echo "Deploying to npm ..."
+      script: 
+        - npm version patch --force 
+        - echo "Deploying to npm ..."
       deploy:
         provider: npm
         email: "jaylandro@gmail.com"
