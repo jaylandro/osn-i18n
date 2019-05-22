@@ -40,6 +40,10 @@
               // On select event calls:
               this.$i18n.locale = languageCode; 
       
+      slide.local-eg-theme-spark.one(enter='fadeIn' leave='bounceOutLeft')
+        eg-transition(enter='fadeInUp')
+            img(src='https://assets.transifex.com/static/images/com/infographic-localization.png')
+      
       slide.local-eg-theme-spark(enter='fadeIn' leave='bounceOutLeft')
         eg-transition(enter='fadeInUp')
             a(href='https://www.transifex.com/osn-i18n/osn-i18n/dashboard/' target='_blank')
@@ -49,7 +53,11 @@
         h5 Let's use our Country Data!
         country-select
       
-      slide.local-eg-theme-forest-road(:steps=4, enter='fadeIn' leave='bounceOutLeft')
+      slide.diagram(enter='zoomInUp'  leave='zoomOutDown')
+        h4 Our Flow
+          img(src='./assets/i18nflow.png')
+      
+      slide.local-eg-theme-forest-road(:steps=5, enter='fadeIn' leave='bounceOutLeft')
         h3 Numeric Formatting (Dates, Currency, Time)
         ul.goals
           eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
@@ -57,7 +65,9 @@
           eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
             li(v-if='step >= 3') 💱 Currency #[a(href='https://kazupon.github.io/vue-i18n/guide/number.html') Vue-i18n Docs] 
           eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-            li(v-if='step >= 4') 🕔 Time (Do you have 6 more hours?)
+            li(v-if='step >= 4') 💱 Currency Conversion #[a(href='https://wt-cb52b229c28374763fb6f62476e67c6c-0.sandbox.auth0-extend.com/currency?amount=32') Webtask] 
+          eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+            li(v-if='step >= 5') 🕔 Time (Do you have 6 more #[a(href='https://date-fns.org/') hours]?)
 
       slide.local-eg-theme-space(enter='fadeIn'  leave='fadeOut')
           h3 The future is up to you
@@ -88,6 +98,7 @@ export default {
 body {
   width: 100%;
   margin: 0 0;
+  font-family: 'Noto Sans', sans-serif;
 }
 input, select {
   background: white;
@@ -158,6 +169,9 @@ input, select {
       display: block;
       margin-top: 12em;
     }
+    &.one {
+      overflow: auto;
+    }
     background-image: url(https://i.imgur.com/FL9mwpd.jpg);
     background-position: center;
     background-size: cover;
@@ -195,6 +209,9 @@ input, select {
     background-image: url(https://i.imgur.com/yO2ivoD.jpg);
     background-position: center;
     background-size: cover;
+  }
+  .diagram h3 {
+    text-transform: none;
   }
 }
 </style>

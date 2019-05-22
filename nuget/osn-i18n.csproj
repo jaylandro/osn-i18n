@@ -4,13 +4,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>osn-i18n</PackageId>
-    <Version>1.0.5</Version>
+    <Version>1.0.8</Version>
     <Authors>jay landro</Authors>
     <Company>sdg</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <BumpPatch>True</BumpPatch>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MSBump" Version="2.3.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 </Project>
