@@ -80,6 +80,7 @@
 import { Slideshow } from 'eagle.js'
 import HelloWorld from './components/HelloWorld.vue'
 import CountrySelect from './components/CountrySelect.vue'
+import Hammer from 'hammerjs'
 
 export default {
   name: 'app',
@@ -88,6 +89,17 @@ export default {
     HelloWorld,
     CountrySelect,
   },
+  mounted() {
+    const hammer = new Hammer(window)
+
+    hammer.on('swiperight', () => {
+      this.previousStep()
+    })
+
+    hammer.on('swipeleft', () => {
+      this.nextStep()
+    })
+  }
 }
 </script>
 
